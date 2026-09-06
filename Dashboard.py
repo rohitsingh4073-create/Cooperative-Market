@@ -2556,6 +2556,7 @@ def worker_earnings(worker_id):
     })
 
 
+
 # ============================================================
 # RUN SERVER
 # ============================================================
@@ -2567,18 +2568,23 @@ if __name__ == "__main__":
     print("   COOPERATIVE SERVICES BACKEND")
     print("========================================")
     print()
-    print("Server running at:")
-    print("http://127.0.0.1:5000")
-    print()
     print("Data is stored temporarily in memory.")
     print("Stopping this program will erase")
     print("all customers, workers, bookings")
     print("and ratings.")
     print()
 
-    app.run(
-        host="127.0.0.1",
-        port=5000,
-        debug=True
+    import os
+
+    port = int(
+        os.environ.get("PORT", 5000)
     )
+
+    app.run(
+        host="0.0.0.0",
+        port=port,
+        debug=False
+    )
+
+
 
