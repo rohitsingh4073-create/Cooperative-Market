@@ -1363,23 +1363,94 @@ CORS(app)
 
 
 # ============================================================
-# TEMPORARY IN-MEMORY STORAGE
+# TEMPORARY IN-MEMORY STORAGE (Pre-seeded with Stitch reference demo data)
 # ============================================================
 
-workers = []
-customers = []
-bookings = []
-ratings = []
+workers = [
+    Worker(
+        "W001",
+        "Sarah Jenkins",
+        "pass1234",
+        "9876543201",
+        "sarah@example.com",
+        34,
+        "123 Park Ave",
+        "New York",
+        "10001",
+        "Electrician",
+        "Smart Home, Residential Wiring",
+        10,
+        "Master electrician with 10+ years experience in residential and commercial installations. Certified and insured.",
+        True,
+        "8:00 AM - 6:00 PM"
+    ),
+    Worker(
+        "W002",
+        "Michael Torres",
+        "pass1234",
+        "9876543202",
+        "michael@example.com",
+        38,
+        "45 Broadway",
+        "Brooklyn",
+        "11201",
+        "Plumber",
+        "Emergency, Pipe Fitting, Fixtures",
+        8,
+        "Licensed plumber specializing in emergency repairs, pipe fitting, and fixture installations across the city.",
+        True,
+        "24/7 Emergency"
+    ),
+    Worker(
+        "W003",
+        "David Chen",
+        "pass1234",
+        "9876543203",
+        "david@example.com",
+        42,
+        "78 Atlantic Ave",
+        "Brooklyn",
+        "11201",
+        "Carpenter",
+        "Cabinetry, Furniture Repair",
+        12,
+        "Custom cabinetry, furniture repair, and fine woodworking. Attention to detail is my hallmark.",
+        False,
+        "9:00 AM - 5:00 PM"
+    )
+]
+
+customers = [
+    Customer(
+        "C001",
+        "Alex Rivera",
+        "pass1234",
+        "9876543210",
+        "alex@example.com",
+        "77 Main St, Apt 4B",
+        "11201"
+    )
+]
+
+bookings = [
+    Booking("B001", "C001", "W001", "Electrician", "Today, 2:00 PM", "ACCEPTED"),
+    Booking("B002", "C001", "W001", "Electrician", "Tomorrow, 10:00 AM", "PENDING")
+]
+
+ratings = [
+    Rating("R001", "B001", "C001", "W001", 5, "Outstanding electrical work. Solved our circuit issue in under an hour!"),
+    Rating("R002", "B001", "C001", "W002", 5, "Super reliable plumbing fix.")
+]
 
 
 # ============================================================
 # ID COUNTERS
 # ============================================================
 
-customer_counter = 1
-worker_counter = 1
-booking_counter = 1
-rating_counter = 1
+customer_counter = 2
+worker_counter = 4
+booking_counter = 3
+rating_counter = 3
 
 
 
@@ -1687,31 +1758,20 @@ def find_workers():
         "service"
     )
 
-
-    if not service:
-
-        return jsonify({
-
-            "success": False,
-
-            "message":
-                "Please provide a service."
-
-        }), 400
-
+    available_only = request.args.get("available_only", "true").lower() == "true"
+    if request.args.get("all") == "true":
+        available_only = False
 
     matching_workers = []
 
-
     for worker in workers:
+        match_service = True
+        if service and service.strip() != "" and service.lower() != "all":
+            match_service = (worker.primary_skill.lower() == service.lower())
 
-        if (
-            worker.primary_skill.lower()
-            == service.lower()
-            and
-            worker.available
-        ):
+        should_include = match_service and (not available_only or worker.available)
 
+        if should_include:
             worker_data = worker.to_dict()
 
 
