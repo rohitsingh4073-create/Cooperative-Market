@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cooperative Services</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            display: block;
+            margin-top: 6px;
+            padding: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .worker-card,
+        .booking-card {
+            border: 1px solid black;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        hr {
+            margin: 30px 0;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ========================================================
+     LOGIN PAGE
+     ======================================================== -->
+
+<div id="loginPage" class="page active">
+
+    <h1>Cooperative Services</h1>
+
+    <h2>Login</h2>
+
+    <label>
+        Mobile Number
+    </label>
+
+    <input
+        type="text"
+        id="loginMobile"
+    >
+
+
+    <label>
+        Password
+    </label>
+
+    <input
+        type="password"
+        id="loginPassword"
+    >
+
+
+    <button id="loginButton">
+        Login
+    </button>
+
+
+    <p id="loginMessage"></p>
+
+
+    <hr>
+
+
+    <h2>New User?</h2>
+
+    <button id="customerSignupButton">
+        Sign Up as Customer
+    </button>
+
+    <button id="workerSignupButton">
+        Sign Up as Worker
+    </button>
+
+</div>
+
+
+
+<!-- ========================================================
+     CUSTOMER SIGNUP
+     ======================================================== -->
+
+<div id="customerSignupPage" class="page">
+
+    <h1>Customer Signup</h1>
+
+
+    <label>
+        Full Name
+    </label>
+
+    <input
+        type="text"
+        id="customerName"
+    >
+
+
+    <label>
+        Password
+    </label>
+
+    <input
+        type="password"
+        id="customerPassword"
+    >
+
+
+    <label>
+        Mobile Number
+    </label>
+
+    <input
+        type="text"
+        id="customerMobile"
+    >
+
+
+    <label>
+        Email (Optional)
+    </label>
+
+    <input
+        type="email"
+        id="customerEmail"
+    >
+
+
+    <label>
+        Address
+    </label>
+
+    <input
+        type="text"
+        id="customerAddress"
+    >
+
+
+    <label>
+        Pincode
+    </label>
+
+    <input
+        type="text"
+        id="customerPincode"
+    >
+
+
+    <button id="customerSignupSubmit">
+        Create Customer Account
+    </button>
+
+
+    <button id="customerSignupBack">
+        Back to Login
+    </button>
+
+
+    <p id="customerSignupMessage"></p>
+
+</div>
+
+
+
+<!-- ========================================================
+     WORKER SIGNUP
+     ======================================================== -->
+
+<div id="workerSignupPage" class="page">
+
+    <h1>Worker Signup</h1>
+
+
+    <label>
+        Full Name
+    </label>
+
+    <input
+        type="text"
+        id="workerName"
+    >
+
+
+    <label>
+        Password
+    </label>
+
+    <input
+        type="password"
+        id="workerPassword"
+    >
+
+
+    <label>
+        Mobile Number
+    </label>
+
+    <input
+        type="text"
+        id="workerMobile"
+    >
+
+
+    <label>
+        Email
+    </label>
+
+    <input
+        type="email"
+        id="workerEmail"
+    >
+
+
+    <label>
+        Age
+    </label>
+
+    <input
+        type="number"
+        id="workerAge"
+    >
+
+
+    <label>
+        Current Address
+    </label>
+
+    <input
+        type="text"
+        id="workerAddress"
+    >
+
+
+    <label>
+        City
+    </label>
+
+    <input
+        type="text"
+        id="workerCity"
+    >
+
+
+    <label>
+        Pincode
+    </label>
+
+    <input
+        type="text"
+        id="workerPincode"
+    >
+
+
+    <label>
+        Primary Skill
+    </label>
+
+    <select id="workerSkill">
+
+        <option value="Electrician">
+            Electrician
+        </option>
+
+        <option value="Plumber">
+            Plumber
+        </option>
+
+        <option value="Carpenter">
+            Carpenter
+        </option>
+
+        <option value="Painter">
+            Painter
+        </option>
+
+        <option value="Cleaner">
+            Cleaner
+        </option>
+
+        <option value="Driver">
+            Driver
+        </option>
+
+        <option value="Other">
+            Other
+        </option>
+
+    </select>
+
+
+    <label>
+        Additional Skills
+    </label>
+
+    <input
+        type="text"
+        id="workerAdditionalSkills"
+    >
+
+
+    <label>
+        Years of Experience
+    </label>
+
+    <input
+        type="number"
+        id="workerExperience"
+    >
+
+
+    <label>
+        Short Description / About
+    </label>
+
+    <textarea
+        id="workerDescription"
+        rows="4"
+    ></textarea>
+
+
+    <label>
+        Preferred Working Hours
+    </label>
+
+    <input
+        type="text"
+        id="workerHours"
+        placeholder="Example: 9 AM - 5 PM"
+    >
+
+
+    <button id="workerSignupSubmit">
+        Create Worker Account
+    </button>
+
+
+    <button id="workerSignupBack">
+        Back to Login
+    </button>
+
+
+    <p id="workerSignupMessage"></p>
+
+</div>
+
+
+
+<!-- ========================================================
+     CUSTOMER DASHBOARD
+     ======================================================== -->
+
+<div id="customerDashboard" class="page">
+
+    <h1>Customer Dashboard</h1>
+
+
+    <h2>
+        Welcome,
+        <span id="customerWelcome"></span>!
+    </h2>
+
+
+    <div class="section">
+
+        <button id="findWorkerButton">
+            1. Find a Worker
+        </button>
+
+        <button id="customerBookingsButton">
+            2. My Bookings
+        </button>
+
+        <button id="customerProfileButton">
+            3. My Profile
+        </button>
+
+        <button id="customerLogoutButton">
+            4. Logout
+        </button>
+
+    </div>
+
+
+    <hr>
+
+
+    <div id="customerContent"></div>
+
+</div>
+
+
+
+<!-- ========================================================
+     WORKER DASHBOARD
+     ======================================================== -->
+
+<div id="workerDashboard" class="page">
+
+    <h1>Worker Dashboard</h1>
+
+
+    <h2>
+        Welcome,
+        <span id="workerWelcome"></span>!
+    </h2>
+
+
+    <div class="section">
+
+        <button id="workerProfileButton">
+            1. My Profile
+        </button>
+
+        <button id="workerBookingsButton">
+            2. My Bookings
+        </button>
+
+        <button id="availabilityButton">
+            3. Availability
+        </button>
+
+        <button id="earningsButton">
+            4. Earnings
+        </button>
+
+        <button id="workerLogoutButton">
+            5. Logout
+        </button>
+
+    </div>
+
+
+    <hr>
+
+
+    <div id="workerContent"></div>
+
+</div>
+
+
+
+<!-- ========================================================
+     JAVASCRIPT
+     ======================================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
+
