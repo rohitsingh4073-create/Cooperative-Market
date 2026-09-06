@@ -1,5 +1,6 @@
 /**
  * Urban Company Delhi NCR Experience Controller
+ * Clean, modern, professional vector-driven interface.
  * Handles city selection, category filtering, spotlight cards, slide-out drawer booking,
  * partner dashboard workflows, and REST backend integration.
  */
@@ -9,12 +10,12 @@ let currentCity = "Delhi NCR";
 let activeTrade = "all";
 let allWorkers = [];
 let currentUser = {
-    role: "customer", // 'customer' or 'worker'
+    role: "customer",
     id: "C001",
     name: "Alex Rivera",
     mobile: "9876543210"
 };
-let partnerWorkerId = "W001"; // Default view for Worker/Partner dashboard
+let partnerWorkerId = "W001";
 let partnerOnline = true;
 let activeBookingPro = null;
 let selectedDate = "Today";
@@ -30,17 +31,6 @@ const TRADE_PRICES = {
     "Painter": "₹599",
     "Driver": "₹299",
     "default": "₹399"
-};
-
-// Trade Icon Mapping
-const TRADE_ICONS = {
-    "Electrician": "⚡",
-    "Plumber": "🔧",
-    "Carpenter": "🪚",
-    "Cleaner": "🧹",
-    "Painter": "🎨",
-    "Driver": "🚗",
-    "default": "🛠️"
 };
 
 // Initialize Application
@@ -100,11 +90,18 @@ function renderProfessionals(workersList) {
     if (!grid) return;
 
     if (!workersList || workersList.length === 0) {
-        grid.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;">
-            <div style="font-size: 32px; margin-bottom: 8px;">🔍</div>
-            <div style="font-size: 16px; font-weight: 700; color: var(--text-primary);">No verified professionals found</div>
-            <div>Try selecting another trade or clearing your search keywords.</div>
-        </div>`;
+        grid.innerHTML = `
+            <div class="empty-state" style="grid-column: 1 / -1;">
+                <div style="margin-bottom: 12px; color: var(--text-muted);">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <div style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">No verified professionals found</div>
+                <div>Try selecting another trade or clearing your search keywords.</div>
+            </div>
+        `;
         if (countBadge) countBadge.textContent = "0 Available";
         return;
     }
@@ -116,7 +113,6 @@ function renderProfessionals(workersList) {
 
     grid.innerHTML = workersList.map(worker => {
         const initials = worker.full_name.split(" ").map(n => n[0]).join("").toUpperCase();
-        const icon = TRADE_ICONS[worker.primary_skill] || TRADE_ICONS.default;
         const price = TRADE_PRICES[worker.primary_skill] || TRADE_PRICES.default;
         const isAvail = worker.available;
         const ratingScore = worker.average_rating ? Number(worker.average_rating).toFixed(2) : "4.88";
@@ -140,20 +136,26 @@ function renderProfessionals(workersList) {
                                 <span class="pro-name">${worker.full_name}</span>
                                 <span class="verified-badge" title="Urban Company Verified Partner">✓</span>
                             </div>
-                            <div class="pro-trade-title">${icon} ${worker.primary_skill} • ${worker.years_of_experience || 8}+ yrs exp</div>
+                            <div class="pro-trade-title">${worker.primary_skill} • ${worker.years_of_experience || 8}+ yrs exp</div>
                             <div class="pro-rating-badge">★ ${ratingScore} (${reviewsCount})</div>
                         </div>
                     </div>
 
                     <div class="pro-location-row">
-                        <span>📍 ${worker.current_address || 'Delhi NCR'}</span>
+                        <span class="svg-icon" style="color: var(--text-muted); margin-right: 4px;">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </span>
+                        <span>${worker.current_address || 'Delhi NCR'}</span>
                         <span>• Arrives in 30-45 mins</span>
                     </div>
 
                     <p class="pro-desc">${worker.description || 'Verified Urban Company trade partner with 100% background check, standard transparent pricing and 30-day warranty.'}</p>
 
                     <div class="pro-tags">
-                        <span class="pro-tag">✓ 30-Day Guarantee</span>
+                        <span class="pro-tag">30-Day Guarantee</span>
                         ${tags.map(t => `<span class="pro-tag">${t}</span>`).join("")}
                     </div>
                 </div>
@@ -307,7 +309,7 @@ function openBookingDrawer(workerId, workerName, trade, price) {
 
     // Populate drawer info
     document.getElementById("drawerProName").textContent = workerName;
-    document.getElementById("drawerProTrade").textContent = `${TRADE_ICONS[trade] || '🛠️'} ${trade} • Doorstep Expert`;
+    document.getElementById("drawerProTrade").textContent = `${trade} • Doorstep Expert`;
     document.getElementById("drawerTotal").textContent = price;
 
     drawer.classList.add("active");
@@ -364,15 +366,15 @@ async function submitDrawerBooking() {
 
         if (response.ok && data.success) {
             closeBookingDrawer();
-            showToast(`🎉 Booking #${data.booking.booking_id} Confirmed with ${activeBookingPro.workerName}!`);
+            showToast(`Booking #${data.booking.booking_id} confirmed with ${activeBookingPro.workerName}`);
             loadPartnerDashboard();
         } else {
-            showToast(`⚠️ Booking error: ${data.error || 'Please try again.'}`);
+            showToast(`Booking error: ${data.error || 'Please try again.'}`);
         }
     } catch (err) {
         console.error("Booking error:", err);
         closeBookingDrawer();
-        showToast(`🎉 Order Placed! ${activeBookingPro.workerName} scheduled for ${selectedDate}.`);
+        showToast(`Order Placed: ${activeBookingPro.workerName} scheduled for ${selectedDate}`);
     } finally {
         btn.textContent = "Confirm Booking";
         btn.disabled = false;
@@ -394,11 +396,21 @@ async function loadPartnerDashboard() {
         const list = data.bookings || [];
 
         if (list.length === 0) {
-            bookingsContainer.innerHTML = `<div class="empty-state">
-                <div style="font-size: 28px; margin-bottom: 6px;">📋</div>
-                <div style="font-weight: 700; color: var(--text-primary);">No active bookings right now</div>
-                <div>New service requests will pop up here instantly.</div>
-            </div>`;
+            bookingsContainer.innerHTML = `
+                <div class="empty-state">
+                    <div style="margin-bottom: 8px; color: var(--text-muted);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 2px;">No active bookings right now</div>
+                    <div>New service requests will pop up here instantly.</div>
+                </div>
+            `;
             return;
         }
 
@@ -472,15 +484,15 @@ async function togglePartnerAvailability() {
     }
 
     if (partnerOnline) {
-        btn.textContent = "🟢 Online (Accepting Jobs)";
+        btn.innerHTML = `<span class="status-dot-indicator online"></span>Online (Accepting Jobs)`;
         btn.className = "switch-toggle-btn";
         statusText.textContent = "You are currently ONLINE and receiving instant customer booking requests.";
-        showToast("You are now ONLINE and ready for jobs");
+        showToast("You are now online and ready for jobs");
     } else {
-        btn.textContent = "🔴 Offline (Paused)";
+        btn.innerHTML = `<span class="status-dot-indicator offline"></span>Offline (Paused)`;
         btn.className = "switch-toggle-btn offline";
         statusText.textContent = "You are currently OFFLINE. Customers cannot book instant slots.";
-        showToast("You are now OFFLINE");
+        showToast("You are now offline");
     }
 
     // Refresh workers list so customer view reflects it
@@ -539,7 +551,7 @@ async function handleAuthSubmit(event) {
 
             document.getElementById("authBtnLabel").textContent = currentUser.name.split(" ")[0];
             closeAuthModal();
-            showToast(`Welcome back, ${currentUser.name}!`);
+            showToast(`Welcome back, ${currentUser.name}`);
 
             if (authRole === "worker") {
                 partnerWorkerId = currentUser.id;
@@ -550,7 +562,7 @@ async function handleAuthSubmit(event) {
         }
     } catch (err) {
         console.error(err);
-        showToast("Signed in in demo mode!");
+        showToast("Signed in in demo mode");
         closeAuthModal();
     }
 }

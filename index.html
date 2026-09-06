@@ -27,7 +27,7 @@
             --uc-purple-light: #f3e8ff;
             --uc-emerald: #0f8a5f;
             --uc-emerald-light: #ecfdf5;
-            --uc-amber: #f59e0b;
+            --uc-amber: #d97706;
             --radius-pill: 9999px;
             --radius-card: 16px;
             --radius-tile: 14px;
@@ -50,6 +50,14 @@
             color: var(--text-primary);
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
+        }
+
+        .svg-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            vertical-align: middle;
         }
 
         /* Top Header Navbar */
@@ -104,7 +112,7 @@
         .location-selector {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             background: var(--bg-subtle);
             border: 1px solid var(--border-default);
             border-radius: var(--radius-pill);
@@ -121,14 +129,8 @@
             background: #ffffff;
         }
 
-        .location-pin {
-            color: var(--uc-emerald);
-            font-size: 14px;
-        }
-
         .location-chevron {
             color: var(--text-muted);
-            font-size: 11px;
             margin-left: 2px;
         }
 
@@ -215,7 +217,7 @@
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .auth-btn:hover {
@@ -246,7 +248,7 @@
             border-radius: var(--radius-pill);
             font-size: 12px;
             font-weight: 700;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.04em;
             margin-bottom: 12px;
         }
 
@@ -326,10 +328,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
             margin-bottom: 12px;
             background: var(--bg-subtle);
             border: 1px solid var(--border-light);
+            color: var(--text-primary);
         }
 
         .category-name {
@@ -504,7 +506,7 @@
             background: var(--uc-purple);
             color: #ffffff;
             border-radius: 50%;
-            font-size: 9px;
+            font-size: 10px;
             font-weight: 900;
         }
 
@@ -643,7 +645,6 @@
         }
 
         .trust-icon {
-            font-size: 24px;
             background: #ffffff;
             border: 1px solid var(--border-default);
             width: 44px;
@@ -653,6 +654,7 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            color: var(--text-primary);
         }
 
         .trust-heading {
@@ -696,6 +698,7 @@
             color: var(--uc-amber);
             font-size: 14px;
             margin-bottom: 8px;
+            letter-spacing: 2px;
         }
 
         .review-text {
@@ -717,7 +720,7 @@
             color: var(--text-muted);
         }
 
-        /* Worker Dashboard Section (Hidden by default, toggled via nav) */
+        /* Worker Dashboard Section */
         #worker-view {
             display: none;
         }
@@ -772,7 +775,7 @@
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
         }
 
         .availability-switch-card {
@@ -785,6 +788,22 @@
             border-radius: var(--radius-card);
         }
 
+        .status-dot-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .status-dot-indicator.online {
+            background-color: var(--uc-emerald);
+        }
+
+        .status-dot-indicator.offline {
+            background-color: #ef4444;
+        }
+
         .switch-toggle-btn {
             background: var(--uc-emerald-light);
             color: var(--uc-emerald);
@@ -795,6 +814,8 @@
             font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
         }
 
         .switch-toggle-btn.offline {
@@ -877,10 +898,13 @@
         .drawer-close {
             background: none;
             border: none;
-            font-size: 22px;
+            font-size: 18px;
             color: var(--text-muted);
             cursor: pointer;
             padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .drawer-body {
@@ -1020,6 +1044,9 @@
             color: var(--text-primary);
             cursor: pointer;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .city-choice-btn:hover, .city-choice-btn.active {
@@ -1094,11 +1121,20 @@
                     <span>Urban Company</span>
                 </div>
 
-                <!-- Location Selector -->
+                <!-- Location Selector with Clean SVG Pin -->
                 <div class="location-selector" id="locationSelectorBtn" onclick="openCityModal()">
-                    <span class="location-pin">📍</span>
+                    <span class="svg-icon" style="color: var(--uc-emerald);">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </span>
                     <span id="currentCityText">Delhi NCR</span>
-                    <span class="location-chevron">▼</span>
+                    <span class="svg-icon location-chevron">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </span>
                 </div>
             </div>
 
@@ -1123,7 +1159,12 @@
 
                 <!-- Sign In / User Profile -->
                 <button class="auth-btn" id="headerAuthBtn" onclick="openAuthModal()">
-                    <span>👤</span>
+                    <span class="svg-icon" style="color: var(--text-secondary);">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </span>
                     <span id="authBtnLabel">Sign In</span>
                 </button>
             </div>
@@ -1138,7 +1179,7 @@
             
             <!-- Hero Section -->
             <div class="hero-banner">
-                <div class="hero-badge">⚡ EXPERT DOORSTEP SERVICES</div>
+                <div class="hero-badge">EXPERT DOORSTEP SERVICES</div>
                 <h1 class="hero-title">Home services at your doorstep</h1>
                 <p class="hero-subtitle">Verified professionals, upfront pricing, and guaranteed customer delight across Delhi NCR.</p>
             </div>
@@ -1152,7 +1193,11 @@
             <div class="category-grid">
                 <!-- 1. Electrician -->
                 <div class="category-card" onclick="selectCategory('Electrician')">
-                    <div class="category-icon-wrap">⚡</div>
+                    <div class="category-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
                     <div>
                         <div class="category-name">Electrician</div>
                         <div class="category-desc">Switches, Wiring, Fans & Inverter</div>
@@ -1161,7 +1206,11 @@
 
                 <!-- 2. Plumber -->
                 <div class="category-card" onclick="selectCategory('Plumber')">
-                    <div class="category-icon-wrap">🔧</div>
+                    <div class="category-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                    </div>
                     <div>
                         <div class="category-name">Plumber</div>
                         <div class="category-desc">Taps, Pipes, Tanks & Leakages</div>
@@ -1170,7 +1219,13 @@
 
                 <!-- 3. Carpenter -->
                 <div class="category-card" onclick="selectCategory('Carpenter')">
-                    <div class="category-icon-wrap">🪚</div>
+                    <div class="category-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 12l-8.5 8.5a2.12 2.12 0 0 1-3-3L12 9"></path>
+                            <path d="M17.64 4.36a9 9 0 0 1 2 2"></path>
+                            <path d="M12 2l4 4-2 2-4-4 2-2z"></path>
+                        </svg>
+                    </div>
                     <div>
                         <div class="category-name">Carpenter</div>
                         <div class="category-desc">Furniture, Locks & Drill-Hang</div>
@@ -1179,7 +1234,11 @@
 
                 <!-- 4. Cleaning & Pest Control -->
                 <div class="category-card" onclick="selectCategory('Cleaner')">
-                    <div class="category-icon-wrap">🧹</div>
+                    <div class="category-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"></path>
+                        </svg>
+                    </div>
                     <div>
                         <div class="category-name">Deep Cleaning</div>
                         <div class="category-desc">Full Home, Bathrooms & Sofas</div>
@@ -1188,7 +1247,12 @@
 
                 <!-- 5. Painting & Waterproofing -->
                 <div class="category-card" onclick="selectCategory('Painter')">
-                    <div class="category-icon-wrap">🎨</div>
+                    <div class="category-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18.37 2.63L14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3z"></path>
+                            <path d="M9 8c-2 3-4 3.5-7 4l8 8c.5-3 1-5 4-7"></path>
+                        </svg>
+                    </div>
                     <div>
                         <div class="category-name">Painting</div>
                         <div class="category-desc">Waterproofing & Wall Touch-ups</div>
@@ -1197,7 +1261,16 @@
 
                 <!-- 6. AC & Appliances -->
                 <div class="category-card" onclick="selectCategory('Electrician')">
-                    <div class="category-icon-wrap">❄️</div>
+                    <div class="category-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <line x1="12" y1="2" x2="12" y2="22"></line>
+                            <path d="m20 16-4-4 4-4"></path>
+                            <path d="m4 8 4 4-4 4"></path>
+                            <path d="m16 4-4 4-4-4"></path>
+                            <path d="m8 20 4-4 4 4"></path>
+                        </svg>
+                    </div>
                     <div>
                         <div class="category-name">AC & Appliance</div>
                         <div class="category-desc">Service, Repair & Gas Refill</div>
@@ -1206,7 +1279,14 @@
 
                 <!-- 7. Professional Driver -->
                 <div class="category-card" onclick="selectCategory('Driver')">
-                    <div class="category-icon-wrap">🚗</div>
+                    <div class="category-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="9" rx="2"></rect>
+                            <path d="M5 11l2-6h10l2 6"></path>
+                            <circle cx="7.5" cy="16.5" r="1.5"></circle>
+                            <circle cx="16.5" cy="16.5" r="1.5"></circle>
+                        </svg>
+                    </div>
                     <div>
                         <div class="category-name">Driver on Demand</div>
                         <div class="category-desc">City Chauffeur & Highway Trips</div>
@@ -1215,7 +1295,14 @@
 
                 <!-- 8. Handyman -->
                 <div class="category-card" onclick="selectCategory('all')">
-                    <div class="category-icon-wrap">🛡️</div>
+                    <div class="category-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </div>
                     <div>
                         <div class="category-name">All Services</div>
                         <div class="category-desc">View all verified trade partners</div>
@@ -1223,15 +1310,15 @@
                 </div>
             </div>
 
-            <!-- Quick Filter Pills -->
+            <!-- Quick Filter Pills without emojis -->
             <div class="filter-section">
                 <button class="filter-pill active" onclick="filterTrade('all', this)">All Trades</button>
-                <button class="filter-pill" onclick="filterTrade('Electrician', this)">⚡ Electrician</button>
-                <button class="filter-pill" onclick="filterTrade('Plumber', this)">🔧 Plumber</button>
-                <button class="filter-pill" onclick="filterTrade('Carpenter', this)">🪚 Carpenter</button>
-                <button class="filter-pill" onclick="filterTrade('Cleaner', this)">🧹 Cleaning</button>
-                <button class="filter-pill" onclick="filterTrade('Painter', this)">🎨 Painting</button>
-                <button class="filter-pill" onclick="filterTrade('Driver', this)">🚗 Driver</button>
+                <button class="filter-pill" onclick="filterTrade('Electrician', this)">Electrician</button>
+                <button class="filter-pill" onclick="filterTrade('Plumber', this)">Plumber</button>
+                <button class="filter-pill" onclick="filterTrade('Carpenter', this)">Carpenter</button>
+                <button class="filter-pill" onclick="filterTrade('Cleaner', this)">Cleaning</button>
+                <button class="filter-pill" onclick="filterTrade('Painter', this)">Painting</button>
+                <button class="filter-pill" onclick="filterTrade('Driver', this)">Driver</button>
             </div>
 
             <!-- Section: In the Spotlight / Top Rated Professionals -->
@@ -1248,32 +1335,56 @@
                 <!-- Dynamically populated via script.js -->
             </div>
 
-            <!-- Urban Company 4-Pillar Trust Section -->
+            <!-- Urban Company 4-Pillar Trust Section with clean SVGs -->
             <div class="uc-trust-section">
                 <div class="trust-grid">
                     <div class="trust-item">
-                        <div class="trust-icon">🛡️</div>
+                        <div class="trust-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
                         <div>
                             <div class="trust-heading">Verified Professionals</div>
                             <div class="trust-desc">4-step background check and standardized skill assessments.</div>
                         </div>
                     </div>
+
                     <div class="trust-item">
-                        <div class="trust-icon">💰</div>
+                        <div class="trust-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                                <line x1="2" y1="10" x2="22" y2="10"></line>
+                            </svg>
+                        </div>
                         <div>
                             <div class="trust-heading">Upfront & Transparent</div>
                             <div class="trust-desc">Fixed standard rate cards with zero hidden surprises.</div>
                         </div>
                     </div>
+
                     <div class="trust-item">
-                        <div class="trust-icon">⚡</div>
+                        <div class="trust-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </div>
                         <div>
                             <div class="trust-heading">30-Day Guarantee</div>
                             <div class="trust-desc">Free re-work or full refund if you are not 100% satisfied.</div>
                         </div>
                     </div>
+
                     <div class="trust-item">
-                        <div class="trust-icon">🧼</div>
+                        <div class="trust-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg>
+                        </div>
                         <div>
                             <div class="trust-heading">Clean & Contactless</div>
                             <div class="trust-desc">Sanitized tools and thorough clean-up post service.</div>
@@ -1333,7 +1444,7 @@
                     <div class="metric-label">THIS MONTH'S EARNINGS</div>
                     <div class="metric-value" id="partnerEarnings">₹48,250.00</div>
                     <div class="metric-footer">
-                        <span>↗ +18% from last month</span>
+                        <span>+18% from last month</span>
                     </div>
                 </div>
 
@@ -1341,7 +1452,7 @@
                     <div class="metric-label">NEXT PAYOUT DATE</div>
                     <div class="metric-value" id="partnerPayout">₹14,500.00</div>
                     <div class="metric-footer" style="color: var(--text-secondary);">
-                        <span>🕒 Wednesday, 10:00 AM</span>
+                        <span>Wednesday, 10:00 AM</span>
                     </div>
                 </div>
 
@@ -1361,7 +1472,8 @@
                     <p style="font-size: 13px; color: var(--text-secondary);" id="availabilityStatusText">You are currently ONLINE and receiving instant customer booking requests.</p>
                 </div>
                 <button class="switch-toggle-btn" id="toggleAvailabilityBtn" onclick="togglePartnerAvailability()">
-                    🟢 Online (Accepting Jobs)
+                    <span class="status-dot-indicator online"></span>
+                    Online (Accepting Jobs)
                 </button>
             </div>
 
@@ -1388,7 +1500,12 @@
     <aside class="booking-drawer" id="bookingDrawer">
         <div class="drawer-header">
             <div class="drawer-title">Book Service</div>
-            <button class="drawer-close" onclick="closeBookingDrawer()">✕</button>
+            <button class="drawer-close" onclick="closeBookingDrawer()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
         </div>
 
         <div class="drawer-body">
@@ -1397,7 +1514,7 @@
                 <div style="font-size: 15px; font-weight: 700; margin-bottom: 2px;" id="drawerProName">Sarah Jenkins</div>
                 <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 6px;" id="drawerProTrade">Master Electrician</div>
                 <div style="display: flex; gap: 8px; font-size: 12px; color: var(--uc-emerald); font-weight: 600;">
-                    <span>✓ Verified Partner</span>
+                    <span>Verified Partner</span>
                     <span>• 30-Day Guarantee</span>
                 </div>
             </div>
@@ -1417,13 +1534,13 @@
                 <label class="drawer-label">Select Arrival Time Slot</label>
                 <div class="drawer-slots-grid" style="grid-template-columns: 1fr;">
                     <button type="button" class="drawer-slot-btn selected" onclick="selectSlotOption('Morning (9:00 AM - 12:00 PM)', this)">
-                        🌅 Morning (9:00 AM - 12:00 PM)
+                        Morning (9:00 AM - 12:00 PM)
                     </button>
                     <button type="button" class="drawer-slot-btn" onclick="selectSlotOption('Afternoon (1:00 PM - 4:00 PM)', this)">
-                        ☀️ Afternoon (1:00 PM - 4:00 PM)
+                        Afternoon (1:00 PM - 4:00 PM)
                     </button>
                     <button type="button" class="drawer-slot-btn" onclick="selectSlotOption('Evening (5:00 PM - 8:00 PM)', this)">
-                        🌆 Evening (5:00 PM - 8:00 PM)
+                        Evening (5:00 PM - 8:00 PM)
                     </button>
                 </div>
             </div>
@@ -1457,17 +1574,22 @@
         <div class="city-modal">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                 <h3 style="font-size: 18px; font-weight: 800;">Select Your Location</h3>
-                <button class="drawer-close" onclick="closeCityModal()">✕</button>
+                <button class="drawer-close" onclick="closeCityModal()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
             </div>
             <p style="font-size: 13px; color: var(--text-secondary);">Choose your city to view available doorstep services and local professionals:</p>
             
             <div class="city-grid">
-                <button class="city-choice-btn active" onclick="selectCity('Delhi NCR')">📍 Delhi NCR (Full Metro)</button>
-                <button class="city-choice-btn" onclick="selectCity('Gurgaon')">📍 Gurgaon / Cyber City</button>
-                <button class="city-choice-btn" onclick="selectCity('Noida')">📍 Noida / Greater Noida</button>
-                <button class="city-choice-btn" onclick="selectCity('South Delhi')">📍 South Delhi (Saket/GK)</button>
-                <button class="city-choice-btn" onclick="selectCity('Bengaluru')">📍 Bengaluru</button>
-                <button class="city-choice-btn" onclick="selectCity('Mumbai')">📍 Mumbai</button>
+                <button class="city-choice-btn active" onclick="selectCity('Delhi NCR')">Delhi NCR (Full Metro)</button>
+                <button class="city-choice-btn" onclick="selectCity('Gurgaon')">Gurgaon / Cyber City</button>
+                <button class="city-choice-btn" onclick="selectCity('Noida')">Noida / Greater Noida</button>
+                <button class="city-choice-btn" onclick="selectCity('South Delhi')">South Delhi (Saket/GK)</button>
+                <button class="city-choice-btn" onclick="selectCity('Bengaluru')">Bengaluru</button>
+                <button class="city-choice-btn" onclick="selectCity('Mumbai')">Mumbai</button>
             </div>
         </div>
     </div>
@@ -1478,7 +1600,12 @@
         <div class="modal-card">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
                 <h3 style="font-size: 18px; font-weight: 800;" id="authModalTitle">Sign In</h3>
-                <button class="drawer-close" onclick="closeAuthModal()">✕</button>
+                <button class="drawer-close" onclick="closeAuthModal()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
             </div>
 
             <!-- Role Selector -->
