@@ -1,5 +1,5 @@
 /**
- * Urban Company Delhi NCR Experience Controller
+ * Cooperative Market Delhi NCR Experience Controller
  * Clean, modern, professional vector-driven interface.
  * Handles city selection, category filtering, spotlight cards, slide-out drawer booking,
  * partner dashboard workflows, and REST backend integration.
@@ -22,7 +22,7 @@ let selectedDate = "Today";
 let selectedSlot = "Morning (9:00 AM - 12:00 PM)";
 let authRole = "customer";
 
-// Standard Urban Company Rate Card in INR (₹)
+// Standard Cooperative Market Rate Card in INR (₹)
 const TRADE_PRICES = {
     "Electrician": "₹399",
     "Plumber": "₹349",
@@ -79,7 +79,7 @@ async function fetchWorkers() {
         renderProfessionals(allWorkers);
     } catch (err) {
         console.error("Error fetching workers:", err);
-        showToast("Using pre-seeded Urban Company Delhi NCR professionals");
+        showToast("Using pre-seeded Cooperative Market Delhi NCR professionals");
     }
 }
 
@@ -134,7 +134,7 @@ function renderProfessionals(workersList) {
                         <div class="pro-info">
                             <div class="pro-name-row">
                                 <span class="pro-name">${worker.full_name}</span>
-                                <span class="verified-badge" title="Urban Company Verified Partner">✓</span>
+                                <span class="verified-badge" title="Cooperative Market Verified Partner">✓</span>
                             </div>
                             <div class="pro-trade-title">${worker.primary_skill} • ${worker.years_of_experience || 8}+ yrs exp</div>
                             <div class="pro-rating-badge">★ ${ratingScore} (${reviewsCount})</div>
@@ -152,7 +152,7 @@ function renderProfessionals(workersList) {
                         <span>• Arrives in 30-45 mins</span>
                     </div>
 
-                    <p class="pro-desc">${worker.description || 'Verified Urban Company trade partner with 100% background check, standard transparent pricing and 30-day warranty.'}</p>
+                    <p class="pro-desc">${worker.description || 'Verified Cooperative Market trade partner with 100% background check, standard transparent pricing and 30-day warranty.'}</p>
 
                     <div class="pro-tags">
                         <span class="pro-tag">30-Day Guarantee</span>
@@ -293,7 +293,7 @@ function selectCity(cityName) {
 }
 
 // ============================================================
-// URBAN COMPANY SLIDE-OUT BOOKING DRAWER
+// COOPERATIVE MARKET SLIDE-OUT BOOKING DRAWER
 // ============================================================
 
 function openBookingDrawer(workerId, workerName, trade, price) {

@@ -1380,7 +1380,7 @@ workers = [
         "Electrician",
         "Smart Home, Wiring & Fuse, Inverter Repair",
         10,
-        "Urban Company Verified Master Electrician with 10+ years experience in Delhi NCR. 100% background checked with 30-day guarantee.",
+        "Cooperative Market Verified Master Electrician with 10+ years experience in Delhi NCR. 100% background checked with 30-day guarantee.",
         True,
         "8:00 AM - 8:00 PM"
     ),
@@ -1448,7 +1448,7 @@ workers = [
         "Painter",
         "Waterproofing, Wall Touch-ups, Full Home Painting",
         11,
-        "Urban Company Top-Rated Painter. Laser measurement, zero mess guarantee, and premium weather-resistant coats.",
+        "Cooperative Market Top-Rated Painter. Laser measurement, zero mess guarantee, and premium weather-resistant coats.",
         True,
         "9:00 AM - 6:00 PM"
     ),
