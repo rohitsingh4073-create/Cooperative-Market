@@ -1,2 +1,14 @@
+[project]
+name = "cooperativemarket"
+version = "0.1.0"
+description = "Cooperative Market & Services Platform"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "flask>=3.0.0",
+    "flask-cors>=4.0.0",
+    "gunicorn>=21.0.0",
+]
+
 [tool.vercel]
 entrypoint = "Dashboard:app"
