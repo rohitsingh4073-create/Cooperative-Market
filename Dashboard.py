@@ -1460,16 +1460,19 @@ rating_counter = 3
 
 
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 @app.route("/")
 def serve_website():
-    return send_from_directory(".", "index.html")
+    return send_from_directory(BASE_DIR, "index.html")
 
 
 
 
 @app.route("/script.js")
 def serve_javascript():
-    return send_from_directory(".", "script.js")
+    return send_from_directory(BASE_DIR, "script.js")
+
 
 
 # ============================================================
