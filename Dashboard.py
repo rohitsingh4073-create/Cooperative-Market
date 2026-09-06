@@ -1374,15 +1374,15 @@ workers = [
         "9876543201",
         "sarah@example.com",
         34,
-        "123 Park Ave",
-        "New York",
-        "10001",
+        "Saket, South Delhi",
+        "Delhi NCR",
+        "110017",
         "Electrician",
-        "Smart Home, Residential Wiring",
+        "Smart Home, Wiring & Fuse, Inverter Repair",
         10,
-        "Master electrician with 10+ years experience in residential and commercial installations. Certified and insured.",
+        "Urban Company Verified Master Electrician with 10+ years experience in Delhi NCR. 100% background checked with 30-day guarantee.",
         True,
-        "8:00 AM - 6:00 PM"
+        "8:00 AM - 8:00 PM"
     ),
     Worker(
         "W002",
@@ -1391,15 +1391,15 @@ workers = [
         "9876543202",
         "michael@example.com",
         38,
-        "45 Broadway",
-        "Brooklyn",
-        "11201",
+        "Cyber City, Sector 29",
+        "Gurgaon",
+        "122002",
         "Plumber",
-        "Emergency, Pipe Fitting, Fixtures",
+        "Tap & Mixer, Pipe Fitting, Water Tank Cleaning",
         8,
-        "Licensed plumber specializing in emergency repairs, pipe fitting, and fixture installations across the city.",
+        "Certified professional plumber specializing in quick leak fixes, sanitary fixtures, and emergency pipe repairs.",
         True,
-        "24/7 Emergency"
+        "24/7 Emergency Service"
     ),
     Worker(
         "W003",
@@ -1408,15 +1408,66 @@ workers = [
         "9876543203",
         "david@example.com",
         42,
-        "78 Atlantic Ave",
-        "Brooklyn",
-        "11201",
+        "Sector 62",
+        "Noida",
+        "201301",
         "Carpenter",
-        "Cabinetry, Furniture Repair",
+        "Modular Furniture, Door Locks, Drill & Hang",
         12,
-        "Custom cabinetry, furniture repair, and fine woodworking. Attention to detail is my hallmark.",
-        False,
-        "9:00 AM - 5:00 PM"
+        "Expert carpenter for fine woodworking, modular wardrobe assembly, and precision lock installations.",
+        True,
+        "9:00 AM - 6:00 PM"
+    ),
+    Worker(
+        "W004",
+        "Sunita Rao",
+        "pass1234",
+        "9876543204",
+        "sunita@example.com",
+        31,
+        "Greater Kailash 1",
+        "Delhi NCR",
+        "110048",
+        "Cleaner",
+        "Deep Home Cleaning, Bathroom, Kitchen, Sofa Sanitization",
+        7,
+        "Specialist in eco-friendly deep house cleaning, motorized scrubber scrubbing, and hospital-grade sanitization.",
+        True,
+        "8:00 AM - 7:00 PM"
+    ),
+    Worker(
+        "W005",
+        "Amit Verma",
+        "pass1234",
+        "9876543205",
+        "amit@example.com",
+        36,
+        "Sector 14, Rohini",
+        "Delhi NCR",
+        "110085",
+        "Painter",
+        "Waterproofing, Wall Touch-ups, Full Home Painting",
+        11,
+        "Urban Company Top-Rated Painter. Laser measurement, zero mess guarantee, and premium weather-resistant coats.",
+        True,
+        "9:00 AM - 6:00 PM"
+    ),
+    Worker(
+        "W006",
+        "Vikram Singh",
+        "pass1234",
+        "9876543206",
+        "vikram@example.com",
+        40,
+        "Dwarka Sector 10",
+        "Delhi NCR",
+        "110075",
+        "Driver",
+        "City Chauffeur, Outstation Trips, Luxury Automatics",
+        14,
+        "Professional licensed chauffeur with clean driving record across Delhi NCR and highways. Punctual and courteous.",
+        True,
+        "Available on demand"
     )
 ]
 
@@ -1427,19 +1478,23 @@ customers = [
         "pass1234",
         "9876543210",
         "alex@example.com",
-        "77 Main St, Apt 4B",
-        "11201"
+        "C-14 Hauz Khas Enclave",
+        "110016"
     )
 ]
 
 bookings = [
     Booking("B001", "C001", "W001", "Electrician", "Today, 2:00 PM", "ACCEPTED"),
-    Booking("B002", "C001", "W001", "Electrician", "Tomorrow, 10:00 AM", "PENDING")
+    Booking("B002", "C001", "W001", "Electrician", "Tomorrow, 10:00 AM", "PENDING"),
+    Booking("B003", "C001", "W002", "Plumber", "Today, 4:30 PM", "COMPLETED")
 ]
 
 ratings = [
-    Rating("R001", "B001", "C001", "W001", 5, "Outstanding electrical work. Solved our circuit issue in under an hour!"),
-    Rating("R002", "B001", "C001", "W002", 5, "Super reliable plumbing fix.")
+    Rating("R001", "B001", "C001", "W001", 5, "Outstanding electrical service! The switchboard and ceiling fan were installed in 30 mins with zero mess."),
+    Rating("R002", "B003", "C001", "W002", 5, "Fixed our kitchen pipeline leakage promptly. Highly polite and verified expert."),
+    Rating("R003", "B001", "C001", "W003", 5, "Assembled our heavy 6-door wardrobe flawlessly."),
+    Rating("R004", "B001", "C001", "W004", 5, "Bathroom sparkling clean! Used high quality mechanized tools."),
+    Rating("R005", "B001", "C001", "W005", 5, "Great painting work and wall putty finish.")
 ]
 
 
@@ -1448,9 +1503,9 @@ ratings = [
 # ============================================================
 
 customer_counter = 2
-worker_counter = 4
-booking_counter = 3
-rating_counter = 3
+worker_counter = 7
+booking_counter = 4
+rating_counter = 6
 
 
 
@@ -1770,7 +1825,10 @@ def find_workers():
     for worker in workers:
         match_service = True
         if service and service.strip() != "" and service.lower() != "all":
-            match_service = (worker.primary_skill.lower() == service.lower())
+            req_s = service.strip().lower()
+            w_skill = worker.primary_skill.lower()
+            w_add = (worker.additional_skills or "").lower()
+            match_service = (req_s == w_skill or req_s in w_skill or w_skill in req_s or req_s in w_add)
 
         should_include = match_service and (not available_only or worker.available)
 
