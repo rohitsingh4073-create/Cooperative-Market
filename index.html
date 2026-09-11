@@ -1106,6 +1106,554 @@
             color: var(--text-muted);
             font-size: 14px;
         }
+
+        /* ============================================================
+           FEATURE 1: REGULAR MAINTENANCE SUBSCRIPTION PLANS
+           ============================================================ */
+        .active-sub-banner {
+            background: linear-gradient(135deg, #f3e8ff 0%, #ede9fe 100%);
+            border: 1px solid #d8b4fe;
+            border-radius: var(--radius-card);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            gap: 16px;
+        }
+
+        .active-sub-banner-content {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .sub-plans-container {
+            margin: 48px 0 54px;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-default);
+            border-radius: 20px;
+            padding: 36px 28px;
+        }
+
+        .sub-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .sub-toggle-wrap {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-pill);
+            padding: 3px;
+        }
+
+        .sub-toggle-btn {
+            border: none;
+            background: transparent;
+            padding: 7px 16px;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .sub-toggle-btn.active {
+            background: var(--uc-black);
+            color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .sub-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .sub-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sub-plan-card {
+            background: #ffffff;
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-card);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .sub-plan-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--border-dark);
+        }
+
+        .sub-plan-card.featured {
+            border: 2px solid var(--uc-purple);
+            box-shadow: 0 10px 30px -10px rgba(110, 66, 229, 0.2);
+        }
+
+        .sub-plan-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--uc-purple);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: var(--radius-pill);
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .sub-plan-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .sub-plan-sub {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .sub-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .sub-price-val {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--text-primary);
+        }
+
+        .sub-price-period {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .sub-perks-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .sub-perk-item {
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.4;
+        }
+
+        .sub-perk-icon {
+            color: var(--uc-emerald);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .sub-cta-btn {
+            width: 100%;
+            background: var(--uc-black);
+            color: #ffffff;
+            border: none;
+            border-radius: var(--radius-pill);
+            padding: 11px 16px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .sub-cta-btn:hover {
+            background: #27272a;
+        }
+
+        .sub-plan-card.featured .sub-cta-btn {
+            background: var(--uc-purple);
+        }
+
+        .sub-plan-card.featured .sub-cta-btn:hover {
+            background: #582cd1;
+        }
+
+        /* ============================================================
+           FEATURE 2: BEST WORK PORTFOLIO SHOWCASE
+           ============================================================ */
+        .pro-portfolio-strip {
+            margin: 12px 0 16px;
+            background: var(--bg-subtle);
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid var(--border-light);
+        }
+
+        .pro-portfolio-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+        }
+
+        .pro-portfolio-view-all {
+            color: var(--uc-purple);
+            cursor: pointer;
+            text-transform: none;
+            font-weight: 700;
+            font-size: 12px;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .pro-portfolio-thumbs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+        }
+
+        .pro-portfolio-thumb {
+            width: 72px;
+            height: 54px;
+            border-radius: 6px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 1px solid var(--border-default);
+            transition: var(--transition);
+        }
+
+        .pro-portfolio-thumb:hover {
+            transform: scale(1.05);
+            border-color: var(--uc-purple);
+        }
+
+        /* Portfolio Modal */
+        .portfolio-modal {
+            max-width: 740px;
+            width: 92%;
+            max-height: 88vh;
+            overflow-y: auto;
+            background: #ffffff;
+            border-radius: var(--radius-card);
+            padding: 28px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            position: relative;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .portfolio-item-card {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-tile);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .portfolio-item-card:hover {
+            border-color: var(--uc-purple);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .portfolio-item-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .portfolio-item-body {
+            padding: 14px;
+        }
+
+        .portfolio-item-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .portfolio-item-cat {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--uc-purple);
+            margin-bottom: 6px;
+        }
+
+        .portfolio-item-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        /* ============================================================
+           FEATURE 3: CUSTOMER PROBLEM PHOTO UPLOAD ON BOOKING
+           ============================================================ */
+        .problem-upload-box {
+            background: var(--bg-subtle);
+            border: 2px dashed var(--border-dark);
+            border-radius: var(--radius-tile);
+            padding: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 10px;
+        }
+
+        .problem-upload-box:hover {
+            border-color: var(--uc-purple);
+            background: #faf5ff;
+        }
+
+        .problem-preview-container {
+            position: relative;
+            display: none;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-default);
+            max-height: 140px;
+        }
+
+        .problem-preview-img {
+            width: 100%;
+            max-height: 140px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .problem-remove-btn {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background: rgba(0,0,0,0.7);
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .quick-issue-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .chip-btn {
+            background: #ffffff;
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-pill);
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chip-btn:hover, .chip-btn.selected {
+            background: var(--uc-black);
+            color: #ffffff;
+            border-color: var(--uc-black);
+        }
+
+        .booking-perk-badge {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        /* ============================================================
+           FEATURE 4: RELIABILITY SCORE BADGE & MODAL
+           ============================================================ */
+        .pro-reliability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #f5f3ff;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+            border-radius: var(--radius-pill);
+            padding: 3px 9px;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pro-reliability-badge:hover {
+            background: #ede9fe;
+            transform: scale(1.03);
+            border-color: #c4b5fd;
+        }
+
+        .reliability-modal {
+            max-width: 580px;
+            width: 92%;
+            background: #ffffff;
+            border-radius: var(--radius-card);
+            padding: 28px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            position: relative;
+        }
+
+        .reliability-hero {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-light);
+            margin-bottom: 20px;
+        }
+
+        .reliability-score-circle {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6E42E5 0%, #9333ea 100%);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(110, 66, 229, 0.3);
+        }
+
+        .reliability-score-num {
+            font-size: 24px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .reliability-score-label {
+            font-size: 9px;
+            font-weight: 700;
+            opacity: 0.85;
+            text-transform: uppercase;
+        }
+
+        .reliability-metrics-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .reliability-metric-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .reliability-metric-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .reliability-bar-bg {
+            width: 100%;
+            height: 7px;
+            background: var(--border-light);
+            border-radius: var(--radius-pill);
+            overflow: hidden;
+        }
+
+        .reliability-bar-fill {
+            height: 100%;
+            background: var(--uc-purple);
+            border-radius: var(--radius-pill);
+            transition: width 0.6s ease;
+        }
+
+        .partner-reliability-card {
+            background: #ffffff;
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-card);
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .booking-problem-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .booking-problem-thumb {
+            width: 64px;
+            height: 64px;
+            border-radius: 6px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 1px solid #cbd5e1;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 
@@ -1151,6 +1699,11 @@
 
             <!-- Header Right Controls -->
             <div class="header-right">
+                <!-- Shield Maintenance Plans Shortcut -->
+                <button class="filter-pill" style="font-size: 12px; font-weight: 700; background: var(--uc-purple-light); color: var(--uc-purple); border-color: #d8b4fe;" onclick="scrollToSubscriptions()">
+                    🛡️ Shield Plans
+                </button>
+
                 <!-- Mode Toggle (Customer / Worker Partner) -->
                 <div class="nav-mode-pill">
                     <button class="nav-mode-btn active" id="tabCustomerBtn" onclick="switchView('customer')">Customer</button>
@@ -1183,6 +1736,9 @@
                 <h1 class="hero-title">Home services at your doorstep</h1>
                 <p class="hero-subtitle">Verified professionals, upfront pricing, and guaranteed customer delight across Delhi NCR.</p>
             </div>
+
+            <!-- Dynamic Active Subscription Alert Banner -->
+            <div id="customerActiveSubBanner" style="display: none;"></div>
 
             <!-- Cooperative Market 8 Category Tiles Grid -->
             <div class="category-grid-title">
@@ -1335,6 +1891,28 @@
                 <!-- Dynamically populated via script.js -->
             </div>
 
+            <!-- ==================== REGULAR MAINTENANCE SUBSCRIPTIONS (IDEA #3) ==================== -->
+            <section class="sub-plans-container" id="subscriptionsSection">
+                <div class="sub-header-row">
+                    <div>
+                        <div style="display: inline-flex; align-items: center; gap: 6px; background: var(--uc-purple-light); color: var(--uc-purple); padding: 4px 12px; border-radius: var(--radius-pill); font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px;">
+                            🛡️ REGULAR CARE SUBSCRIPTION PLANS
+                        </div>
+                        <h2 style="font-size: 24px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;">Routine Maintenance Protection Shields</h2>
+                        <p style="font-size: 13px; color: var(--text-secondary); max-width: 600px;">Avoid sudden electrical breakdowns or plumbing overflows. Scheduled preventative sweeps, 30-min priority dispatch, and zero callout fees.</p>
+                    </div>
+
+                    <div class="sub-toggle-wrap">
+                        <button type="button" class="sub-toggle-btn active" id="subMonthlyToggle" onclick="setSubBillingCycle('monthly')">Monthly Billing</button>
+                        <button type="button" class="sub-toggle-btn" id="subAnnualToggle" onclick="setSubBillingCycle('annual')">Annual (Save 20%)</button>
+                    </div>
+                </div>
+
+                <div class="sub-cards-grid" id="subscriptionPlansGrid">
+                    <!-- Populated dynamically via script.js -->
+                </div>
+            </section>
+
             <!-- Cooperative Market 4-Pillar Trust Section with clean SVGs -->
             <div class="uc-trust-section">
                 <div class="trust-grid">
@@ -1477,14 +2055,103 @@
                 </button>
             </div>
 
+            <!-- ==================== LIVE RELIABILITY SCORECARD (IDEA #8) ==================== -->
+            <div class="partner-reliability-card" id="partnerReliabilityWidget">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                    <div>
+                        <div style="font-size: 11px; font-weight: 800; color: var(--uc-purple); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;">
+                            TRUST & PERFORMANCE AUDIT
+                        </div>
+                        <h3 style="font-size: 18px; font-weight: 800; color: var(--text-primary);">My Live Reliability Scorecard</h3>
+                        <p style="font-size: 13px; color: var(--text-secondary);">Calculated algorithmically based on your verified job completion rate, repeat customer loyalty, and rapid response times.</p>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="reliability-score-circle" style="width: 64px; height: 64px;" id="partnerScoreCircle">
+                            <span class="reliability-score-num" style="font-size: 20px;" id="partnerScoreVal">--</span>
+                            <span class="reliability-score-label">SCORE</span>
+                        </div>
+                        <div>
+                            <div style="font-size: 14px; font-weight: 800;" id="partnerTierVal">Calculating...</div>
+                            <div style="font-size: 12px; color: var(--uc-emerald); font-weight: 600;">Eligible for 0% platform fee discount</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="partnerReliabilityMetricsGrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px;">
+                    <!-- Populated dynamically via script.js -->
+                </div>
+
+                <div style="background: var(--bg-subtle); border-radius: 8px; padding: 12px 16px; font-size: 12px; color: var(--text-secondary); display: flex; align-items: center; justify-content: space-between;" id="partnerReliabilityTips">
+                    <span>💡 <strong>Pro Tip:</strong> Accept incoming customer bookings in under 10 minutes to reach 99/100 Elite Diamond status.</span>
+                </div>
+            </div>
+
             <!-- Partner Bookings Table -->
             <div class="bookings-table-card">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                    <h3 style="font-size: 18px; font-weight: 800;">Recent Job Requests</h3>
+                    <div>
+                        <h3 style="font-size: 18px; font-weight: 800;">Recent Job Requests</h3>
+                        <p style="font-size: 12px; color: var(--text-secondary);">View incoming requests, customer problem photos, and confirm dispatch.</p>
+                    </div>
                     <button class="filter-pill active" onclick="loadPartnerDashboard()">Refresh</button>
                 </div>
 
                 <div id="partnerBookingsList">
+                    <!-- Populated dynamically via script.js -->
+                </div>
+            </div>
+
+            <!-- ==================== BEST WORK PORTFOLIO MANAGER (IDEA #4) ==================== -->
+            <div class="bookings-table-card" style="margin-top: 32px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <div>
+                        <h3 style="font-size: 18px; font-weight: 800;">My Best Work Showcase</h3>
+                        <p style="font-size: 12px; color: var(--text-secondary);">Post high-resolution photos of your best installations and repairs to attract more homeowners.</p>
+                    </div>
+                    <button class="filter-pill active" onclick="toggleAddPortfolioForm()">+ Add New Project</button>
+                </div>
+
+                <!-- Add Project Form (Collapsed by default) -->
+                <div id="addPortfolioFormWrap" style="display: none; background: var(--bg-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-tile); padding: 18px; margin-bottom: 20px;">
+                    <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 12px;">Add Project to My Portfolio</h4>
+                    <form onsubmit="handlePartnerAddPortfolio(event)">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px;">
+                            <div>
+                                <label class="drawer-label">Project Title</label>
+                                <input type="text" class="drawer-input" id="partnerPortTitle" placeholder="e.g. Smart Ambient False Ceiling Light" required>
+                            </div>
+                            <div>
+                                <label class="drawer-label">Trade / Category</label>
+                                <input type="text" class="drawer-input" id="partnerPortCat" placeholder="e.g. Smart Home & Lighting" required>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px;">
+                            <div>
+                                <label class="drawer-label">Photo URL or Reference</label>
+                                <input type="text" class="drawer-input" id="partnerPortImg" placeholder="https://images.unsplash.com/... or paste photo URL">
+                            </div>
+                            <div>
+                                <label class="drawer-label">Tags (comma separated)</label>
+                                <input type="text" class="drawer-input" id="partnerPortTags" placeholder="e.g. Concealed LED, Zero Mess, Schneider">
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 14px;">
+                            <label class="drawer-label">Project Details & Work Done</label>
+                            <textarea class="drawer-input" id="partnerPortDesc" rows="2" style="height: auto; padding: 10px; font-family: inherit; font-size: 13px; resize: none;" placeholder="Describe what you repaired or installed..."></textarea>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                            <button type="button" class="filter-pill" onclick="toggleAddPortfolioForm()">Cancel</button>
+                            <button type="submit" class="drawer-submit-btn" style="padding: 9px 24px;">Publish to Portfolio</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Showcase Items Grid -->
+                <div class="portfolio-grid" id="partnerPortfolioList">
                     <!-- Populated dynamically via script.js -->
                 </div>
             </div>
@@ -1518,6 +2185,9 @@
                     <span>• 30-Day Guarantee</span>
                 </div>
             </div>
+
+            <!-- Active Subscription Perk Indicator -->
+            <div id="drawerSubscriptionPerk"></div>
 
             <!-- Step 1: Select Date -->
             <div class="drawer-form-group">
@@ -1554,6 +2224,40 @@
             <div class="drawer-form-group">
                 <label class="drawer-label">Contact Mobile Number</label>
                 <input type="text" class="drawer-input" id="drawerMobile" placeholder="10-digit mobile number" value="9876543210">
+            </div>
+
+            <!-- Step 4: Attach Problem Photo & Diagnostic Notes (Idea #5) -->
+            <div class="drawer-form-group">
+                <label class="drawer-label">Attach Photo of Problem (Optional)</label>
+                <div class="problem-upload-box" onclick="document.getElementById('problemFileInput').click()">
+                    <span class="svg-icon" style="color: var(--uc-purple); margin-bottom: 4px;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                    </span>
+                    <div style="font-size: 13px; font-weight: 700; color: var(--text-primary);">Click or tap to upload photo</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">Enables professional to arrive with accurate tools & parts</div>
+                </div>
+                <input type="file" id="problemFileInput" accept="image/*" style="display: none;" onchange="handleProblemPhotoSelect(event)">
+                
+                <div class="problem-preview-container" id="problemPreviewContainer">
+                    <img id="problemPreviewImg" class="problem-preview-img" src="" alt="Problem Preview">
+                    <button type="button" class="problem-remove-btn" onclick="removeProblemPhoto()" title="Remove photo">✕</button>
+                </div>
+
+                <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); margin-top: 8px; text-transform: uppercase;">Quick Visual Diagnostics</div>
+                <div class="quick-issue-chips">
+                    <button type="button" class="chip-btn" onclick="selectQuickIssue('Water Pipe Burst / Joint Leakage', 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&auto=format&fit=crop&q=80')">💧 Leaking Pipe</button>
+                    <button type="button" class="chip-btn" onclick="selectQuickIssue('Tripped MCB Breaker / Fuse Spark', 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&auto=format&fit=crop&q=80')">⚡ MCB Spark</button>
+                    <button type="button" class="chip-btn" onclick="selectQuickIssue('Jammed Mortise Door Lock / Hinge', 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=600&auto=format&fit=crop&q=80')">🚪 Broken Lock</button>
+                    <button type="button" class="chip-btn" onclick="selectQuickIssue('Deep Tile Grout Stains & Scaling', 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=80')">🧼 Tile Stains</button>
+                </div>
+            </div>
+
+            <div class="drawer-form-group">
+                <label class="drawer-label">Diagnostic Notes for Technician (Optional)</label>
+                <textarea class="drawer-input" id="drawerProblemNotes" rows="2" style="height: auto; padding: 10px; font-family: inherit; font-size: 13px; resize: none;" placeholder="e.g. Water dripping from kitchen sink pipe joint under sink..."></textarea>
             </div>
         </div>
 
@@ -1629,6 +2333,96 @@
                     Continue
                 </button>
             </form>
+        </div>
+    </div>
+
+    <!-- ==================== BEST WORK PORTFOLIO LIGHTBOX MODAL (IDEA #4) ==================== -->
+    <div class="modal-overlay" id="portfolioModalOverlay" onclick="closePortfolioModal(event)">
+        <div class="portfolio-modal">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <h3 style="font-size: 18px; font-weight: 800;" id="portfolioWorkerName">Craftsmanship Showcase</h3>
+                    <span class="verified-badge" title="Verified Cooperative Work">✓</span>
+                </div>
+                <button class="drawer-close" onclick="closePortfolioModal()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <p style="font-size: 13px; color: var(--text-secondary);" id="portfolioWorkerSkill">Verified high-resolution installation and repair projects completed across Delhi NCR.</p>
+            
+            <div class="portfolio-grid" id="portfolioGridContent">
+                <!-- Dynamically populated via script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== RELIABILITY SCORE BREAKDOWN MODAL (IDEA #8) ==================== -->
+    <div class="modal-overlay" id="reliabilityModalOverlay" onclick="closeReliabilityModal(event)">
+        <div class="reliability-modal">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 style="font-size: 18px; font-weight: 800;">Cooperative Trust & Reliability Score</h3>
+                <button class="drawer-close" onclick="closeReliabilityModal()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="reliability-hero">
+                <div class="reliability-score-circle" id="relModalCircle">
+                    <span class="reliability-score-num" id="relModalScore">98</span>
+                    <span class="reliability-score-label">TRUST SCORE</span>
+                </div>
+                <div>
+                    <div style="font-size: 17px; font-weight: 800; margin-bottom: 4px;" id="relModalWorker">Sarah Jenkins</div>
+                    <div style="display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: var(--radius-pill); background: var(--uc-purple-light); color: var(--uc-purple); margin-bottom: 6px;" id="relModalTier">Elite Diamond Partner</div>
+                    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.4;">Calculated algorithmically from verified completed bookings, repeat customers, zero-cancellation records, and prompt response times.</p>
+                </div>
+            </div>
+
+            <div class="reliability-metrics-list" id="relModalMetricsList">
+                <!-- Dynamically populated via script.js -->
+            </div>
+
+            <div style="background: var(--bg-subtle); border-radius: 8px; padding: 12px 16px; font-size: 12px; color: var(--text-secondary); display: flex; gap: 8px; align-items: flex-start;">
+                <span style="color: var(--uc-emerald); font-weight: 800; font-size: 14px;">✓</span>
+                <span><strong>Platform Authenticity Guarantee:</strong> Reliability scores cannot be bought or artificially manipulated. Every metric reflects real completed customer orders and verified GPS dispatch records.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SUBSCRIPTION CHECKOUT MODAL (IDEA #3) ==================== -->
+    <div class="modal-overlay" id="subModalOverlay" onclick="closeSubModal(event)">
+        <div class="modal-card" style="max-width: 440px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                <h3 style="font-size: 18px; font-weight: 800;">Confirm Subscription Plan</h3>
+                <button class="drawer-close" onclick="closeSubModal()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="subModalBody">
+                <!-- Dynamically populated via script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== PHOTO ZOOM / LIGHTBOX MODAL ==================== -->
+    <div class="modal-overlay" id="photoZoomOverlay" onclick="closePhotoZoom(event)">
+        <div style="max-width: 620px; width: 92%; background: #ffffff; border-radius: var(--radius-card); overflow: hidden; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+            <button class="drawer-close" style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10;" onclick="closePhotoZoom()">✕</button>
+            <img id="photoZoomImg" src="" style="width: 100%; max-height: 70vh; object-fit: contain; background: #0f1111; display: block;" alt="Zoomed Photo">
+            <div style="padding: 14px 18px;" id="photoZoomCaption">
+                <div style="font-weight: 700; font-size: 14px; margin-bottom: 2px;" id="photoZoomTitle">Attached Issue Photo</div>
+                <div style="font-size: 12px; color: var(--text-secondary);" id="photoZoomSub">Verified customer photo</div>
+            </div>
         </div>
     </div>
 

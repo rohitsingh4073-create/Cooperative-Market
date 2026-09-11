@@ -1508,6 +1508,299 @@ booking_counter = 4
 rating_counter = 6
 
 
+# ============================================================
+# SUBSCRIPTION PLANS & STORE (IDEA #3)
+# ============================================================
+
+SUBSCRIPTION_PLANS = [
+    {
+        "plan_id": "sub_dual_shield",
+        "title": "Dual Shield Care",
+        "subtitle": "Electricity + Plumbing Regular Maintenance",
+        "services": ["Electrician", "Plumber"],
+        "price_monthly": 699,
+        "price_annual": 6710,
+        "popular": True,
+        "badge": "Most Popular",
+        "features": [
+            "2 Scheduled routine maintenance sweeps / month",
+            "Zero inspection & diagnosis fee on all emergency calls",
+            "15% Discount on all branded electrical & plumbing spare parts",
+            "Priority technician dispatch in under 30 minutes in Delhi NCR",
+            "30-Day unconditional rework guarantee on all repairs"
+        ],
+        "suitable_for": "1-3 BHK Apartments & Floors"
+    },
+    {
+        "plan_id": "sub_total_home",
+        "title": "Total Home Care Shield",
+        "subtitle": "Electricity + Plumbing + Deep Cleaning + Carpentry",
+        "services": ["Electrician", "Plumber", "Cleaner", "Carpenter"],
+        "price_monthly": 1299,
+        "price_annual": 12470,
+        "popular": False,
+        "badge": "Comprehensive",
+        "features": [
+            "4 Scheduled visits / month covering all 4 essential trades",
+            "Free seasonal AC and water tank electrical leakage inspection",
+            "Zero callout fees across all trades 24/7",
+            "20% Discount on spare parts & materials",
+            "Dedicated senior master technician assigned to your address",
+            "Free monthly plumbing pressure & drain declogging check"
+        ],
+        "suitable_for": "Villas, Duplexes & Large Homes"
+    },
+    {
+        "plan_id": "sub_society_office",
+        "title": "RWA, Society & Office Shield",
+        "subtitle": "Complete Campus Multi-Trade Infrastructure Maintenance",
+        "services": ["Electrician", "Plumber", "Carpenter", "Cleaner", "Painter"],
+        "price_monthly": 3999,
+        "price_annual": 38390,
+        "popular": False,
+        "badge": "Society & Commercial",
+        "features": [
+            "Unlimited routine sweeps & emergency dispatch within 15 mins",
+            "Common pump room, panel board & lighting safety audit",
+            "Monthly statutory electrical earthing & plumbing compliance log",
+            "Dedicated multi-craftsman on-site deployment team",
+            "Bulk wholesale pricing on all commercial consumables & spares",
+            "Consolidated monthly invoicing with GST reporting"
+        ],
+        "suitable_for": "Housing Societies, RWAs & Offices"
+    }
+]
+
+subscriptions = [
+    {
+        "subscription_id": "SUB001",
+        "customer_id": "C001",
+        "plan_id": "sub_dual_shield",
+        "plan_title": "Dual Shield Care",
+        "subtitle": "Electricity + Plumbing Regular Maintenance",
+        "services": ["Electrician", "Plumber"],
+        "billing_cycle": "monthly",
+        "amount": 699,
+        "status": "ACTIVE",
+        "start_date": "2026-09-01",
+        "next_billing_date": "2026-10-01",
+        "visits_remaining": 2
+    }
+]
+
+subscription_counter = 2
+
+
+# ============================================================
+# WORKER / SHOP BEST WORK PORTFOLIO STORE (IDEA #4)
+# ============================================================
+
+worker_portfolios = {
+    "W001": [
+        {
+            "id": "PORT-W001-1",
+            "worker_id": "W001",
+            "title": "Concealed LED Architectural Strip & Ambient Ceiling Lighting",
+            "category": "Smart Home & Lighting",
+            "description": "Custom installation of 24V warm architectural COB strip lights with smart WiFi dual dimmers in Hauz Khas villa.",
+            "completed_date": "August 2026",
+            "image_url": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&auto=format&fit=crop&q=80",
+            "tags": ["Smart Home", "Concealed LED", "Zero Mess"],
+            "verified_by_platform": True
+        },
+        {
+            "id": "PORT-W001-2",
+            "worker_id": "W001",
+            "title": "Heavy 3-Phase Distribution Box & MCB Breaker Overhaul",
+            "category": "High Voltage & Safety",
+            "description": "Complete rewiring of main distribution panel, replacing rewirable porcelain fuses with Siemens RCBO breakers.",
+            "completed_date": "July 2026",
+            "image_url": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&auto=format&fit=crop&q=80",
+            "tags": ["3-Phase Panel", "Surge Protection", "Schneider"],
+            "verified_by_platform": True
+        }
+    ],
+    "W002": [
+        {
+            "id": "PORT-W002-1",
+            "worker_id": "W002",
+            "title": "Concealed Hansgrohe Thermostatic Diverter & Rain Shower",
+            "category": "Luxury Plumbing",
+            "description": "Precision pressure balancing valve fitting with zero wall tile breakage in DLF Phase 5 apartment.",
+            "completed_date": "August 2026",
+            "image_url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80",
+            "tags": ["Concealed Diverter", "Zero Leakage", "Warranty"],
+            "verified_by_platform": True
+        },
+        {
+            "id": "PORT-W002-2",
+            "worker_id": "W002",
+            "title": "Automatic 1.5 HP Hydro-Pneumatic Pressure Booster System",
+            "category": "Pumps & Piping",
+            "description": "Installed dual pump automated booster system with dry-run protection for a 4-storey home in Gurgaon.",
+            "completed_date": "July 2026",
+            "image_url": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&auto=format&fit=crop&q=80",
+            "tags": ["Pressure Booster", "Grundfos", "Automated"],
+            "verified_by_platform": True
+        }
+    ],
+    "W003": [
+        {
+            "id": "PORT-W003-1",
+            "worker_id": "W003",
+            "title": "Fluted Teak Wood Acoustic Slat Wall & Floating Media Console",
+            "category": "Custom Woodwork",
+            "description": "Handcrafted modular acoustic teak paneling with invisible cable conduit routing for 75-inch OLED setup.",
+            "completed_date": "August 2026",
+            "image_url": "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=600&auto=format&fit=crop&q=80",
+            "tags": ["Teak Wood", "Acoustic Slats", "Precision Joinery"],
+            "verified_by_platform": True
+        }
+    ],
+    "W004": [
+        {
+            "id": "PORT-W004-1",
+            "worker_id": "W004",
+            "title": "Hospital-Grade Mechanized Tile Grout & Steam Scrubbing",
+            "category": "Deep Sanitization",
+            "description": "High-pressure 140°C steam extraction and anti-fungal treatment for large master bathroom in Greater Kailash.",
+            "completed_date": "September 2026",
+            "image_url": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=80",
+            "tags": ["Steam Sterilization", "Eco-Friendly", "Karcher"],
+            "verified_by_platform": True
+        }
+    ],
+    "W005": [
+        {
+            "id": "PORT-W005-1",
+            "worker_id": "W005",
+            "title": "Italian Stucco Lustro Venetian Accent Wall Finish",
+            "category": "Luxury Wall Finishes",
+            "description": "Multi-layer hand-troweled marble plaster polished to mirror-glass finish in Vasant Vihar drawing room.",
+            "completed_date": "July 2026",
+            "image_url": "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&auto=format&fit=crop&q=80",
+            "tags": ["Venetian Plaster", "High Gloss", "Dust-Free"],
+            "verified_by_platform": True
+        }
+    ],
+    "W006": [
+        {
+            "id": "PORT-W006-1",
+            "worker_id": "W006",
+            "title": "VIP Interstate Chauffeur Delegation & Highway Trip",
+            "category": "Luxury Chauffeur",
+            "description": "Smooth 650km round trip to Jaipur with zero incidents, executive protocol, and immaculate vehicle care.",
+            "completed_date": "August 2026",
+            "image_url": "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600&auto=format&fit=crop&q=80",
+            "tags": ["Luxury Automatic", "Clean Record", "VIP Protocol"],
+            "verified_by_platform": True
+        }
+    ]
+}
+
+portfolio_counter = 10
+
+
+# ============================================================
+# RELIABILITY SCORE ENGINE (IDEA #8)
+# ============================================================
+
+def calculate_worker_reliability(worker_id):
+    worker_bookings = [b for b in bookings if b.worker_id == worker_id]
+    completed_jobs = len([b for b in worker_bookings if b.status == "COMPLETED"])
+    cancelled_jobs = len([b for b in worker_bookings if b.status == "REJECTED"])
+
+    worker_ratings = [r for r in ratings if r.worker_id == worker_id]
+    complaints = len([r for r in worker_ratings if r.rating <= 2])
+    
+    cust_ids = [b.customer_id for b in worker_bookings if b.status in ("COMPLETED", "ACCEPTED")]
+    repeat_count = max(0, len(cust_ids) - len(set(cust_ids)))
+
+    seed_stats = {
+        "W001": {"base_completed": 142, "base_cancelled": 1, "base_repeat": 48, "avg_resp_mins": 9, "complaints": 0},
+        "W002": {"base_completed": 118, "base_cancelled": 2, "base_repeat": 39, "avg_resp_mins": 12, "complaints": 0},
+        "W003": {"base_completed": 95,  "base_cancelled": 1, "base_repeat": 27, "avg_resp_mins": 14, "complaints": 0},
+        "W004": {"base_completed": 160, "base_cancelled": 2, "base_repeat": 54, "avg_resp_mins": 8,  "complaints": 0},
+        "W005": {"base_completed": 82,  "base_cancelled": 1, "base_repeat": 22, "avg_resp_mins": 15, "complaints": 0},
+        "W006": {"base_completed": 130, "base_cancelled": 0, "base_repeat": 45, "avg_resp_mins": 6,  "complaints": 0},
+    }
+    base = seed_stats.get(worker_id, {"base_completed": 25, "base_cancelled": 0, "base_repeat": 8, "avg_resp_mins": 12, "complaints": 0})
+
+    tot_comp = base["base_completed"] + completed_jobs
+    tot_canc = base["base_cancelled"] + cancelled_jobs
+    tot_handled = tot_comp + tot_canc
+    completion_rate = (tot_comp / tot_handled * 100.0) if tot_handled > 0 else 100.0
+    cancellation_rate = (tot_canc / tot_handled * 100.0) if tot_handled > 0 else 0.0
+    tot_repeat = base["base_repeat"] + repeat_count
+    tot_complaints = base["complaints"] + complaints
+    avg_resp = base["avg_resp_mins"]
+
+    # 1. Completion rate (35 pts max)
+    score_comp = min(35.0, (completion_rate / 100.0) * 35.0)
+
+    # 2. Repeat customers (20 pts max, 30+ repeats = full 20 pts)
+    score_repeat = min(20.0, (tot_repeat / 30.0) * 20.0)
+
+    # 3. Low Cancellation rate (20 pts max)
+    score_canc = max(0.0, 20.0 - (cancellation_rate * 3.0))
+
+    # 4. Zero Complaint record (15 pts max)
+    score_complaints = max(0.0, 15.0 - (tot_complaints * 5.0))
+
+    # 5. Response time (10 pts max)
+    if avg_resp <= 10:
+        score_resp = 10.0
+    elif avg_resp <= 20:
+        score_resp = 8.5
+    elif avg_resp <= 30:
+        score_resp = 7.0
+    else:
+        score_resp = 5.0
+
+    raw_score = score_comp + score_repeat + score_canc + score_complaints + score_resp
+    final_score = int(round(min(100, max(60, raw_score))))
+
+    if final_score >= 95:
+        tier = "Elite Diamond"
+        badge_color = "#6E42E5"
+    elif final_score >= 90:
+        tier = "Platinum Verified"
+        badge_color = "#0f8a5f"
+    elif final_score >= 80:
+        tier = "Gold Trusted"
+        badge_color = "#d97706"
+    else:
+        tier = "Standard Partner"
+        badge_color = "#4b5563"
+
+    return {
+        "worker_id": worker_id,
+        "score": final_score,
+        "tier": tier,
+        "badge_color": badge_color,
+        "metrics": {
+            "completion_rate": f"{completion_rate:.1f}%",
+            "completed_jobs": tot_comp,
+            "cancellation_rate": f"{cancellation_rate:.1f}%",
+            "repeat_customers": tot_repeat,
+            "complaint_count": tot_complaints,
+            "avg_response_mins": avg_resp
+        },
+        "breakdown": {
+            "completion_points": round(score_comp, 1),
+            "repeat_points": round(score_repeat, 1),
+            "cancellation_points": round(score_canc, 1),
+            "complaint_points": round(score_complaints, 1),
+            "response_points": round(score_resp, 1)
+        },
+        "tips": [
+            "Accept booking requests within 10 minutes to maximize response score",
+            "Ensure 100% job fulfillment to retain Platinum/Elite Diamond status",
+            "Consistently provide spotless post-service cleanup to keep 0 complaints"
+        ]
+    }
+
+
 
 # ============================================================
 # HOME / TEST ROUTE
@@ -1896,6 +2189,14 @@ def find_workers():
             ]
 
 
+            # Attach Reliability Score & Portfolio Info
+            reliability_info = calculate_worker_reliability(worker.worker_id)
+            worker_data["reliability"] = reliability_info
+            worker_data["reliability_score"] = reliability_info["score"]
+            worker_data["reliability_tier"] = reliability_info["tier"]
+            worker_data["portfolio_count"] = len(worker_portfolios.get(worker.worker_id, []))
+            worker_data["portfolio_preview"] = worker_portfolios.get(worker.worker_id, [])[:2]
+
             matching_workers.append(
                 worker_data
             )
@@ -2008,6 +2309,8 @@ def create_booking():
 
     booking_counter += 1
 
+    problem_photo = data.get("problem_photo")
+    problem_notes = data.get("problem_notes")
 
     booking = Booking(
 
@@ -2021,7 +2324,11 @@ def create_booking():
 
         date,
 
-        "PENDING"
+        "PENDING",
+
+        problem_photo=problem_photo,
+
+        problem_notes=problem_notes
 
     )
 
@@ -2674,6 +2981,192 @@ def worker_earnings(worker_id):
         "earnings":
             0
 
+    })
+
+
+
+# ============================================================
+# SUBSCRIPTION ROUTES (IDEA #3)
+# ============================================================
+
+@app.route("/subscriptions/plans", methods=["GET"])
+def get_subscription_plans():
+    return jsonify({
+        "success": True,
+        "plans": SUBSCRIPTION_PLANS
+    })
+
+
+@app.route("/subscriptions/subscribe", methods=["POST"])
+def create_subscription():
+    global subscription_counter
+    data = request.json or {}
+    customer_id = data.get("customer_id")
+    plan_id = data.get("plan_id")
+    billing_cycle = data.get("billing_cycle", "monthly")
+
+    if not customer_id or not plan_id:
+        return jsonify({
+            "success": False,
+            "message": "customer_id and plan_id are required."
+        }), 400
+
+    plan = next((p for p in SUBSCRIPTION_PLANS if p["plan_id"] == plan_id), None)
+    if not plan:
+        return jsonify({
+            "success": False,
+            "message": "Subscription plan not found."
+        }), 404
+
+    for sub in subscriptions:
+        if sub["customer_id"] == customer_id and sub["status"] == "ACTIVE":
+            sub["status"] = "SUPERSEDED"
+
+    sub_id = f"SUB{subscription_counter:03d}"
+    subscription_counter += 1
+
+    amount = plan["price_annual"] if billing_cycle == "annual" else plan["price_monthly"]
+
+    new_sub = {
+        "subscription_id": sub_id,
+        "customer_id": customer_id,
+        "plan_id": plan["plan_id"],
+        "plan_title": plan["title"],
+        "subtitle": plan["subtitle"],
+        "services": plan["services"],
+        "billing_cycle": billing_cycle,
+        "amount": amount,
+        "status": "ACTIVE",
+        "start_date": "2026-09-11",
+        "next_billing_date": "2026-10-11" if billing_cycle == "monthly" else "2027-09-11",
+        "visits_remaining": 4 if plan_id == "sub_total_home" else (999 if plan_id == "sub_society_office" else 2)
+    }
+    subscriptions.append(new_sub)
+
+    return jsonify({
+        "success": True,
+        "message": f"Successfully subscribed to {plan['title']}!",
+        "subscription": new_sub
+    })
+
+
+@app.route("/subscriptions/customer/<customer_id>", methods=["GET"])
+def get_customer_subscriptions(customer_id):
+    active_sub = next((s for s in subscriptions if s["customer_id"] == customer_id and s["status"] == "ACTIVE"), None)
+    cust_subs = [s for s in subscriptions if s["customer_id"] == customer_id]
+    return jsonify({
+        "success": True,
+        "has_active_subscription": active_sub is not None,
+        "active_subscription": active_sub,
+        "all_subscriptions": cust_subs
+    })
+
+
+@app.route("/subscriptions/cancel", methods=["POST"])
+def cancel_subscription():
+    data = request.json or {}
+    subscription_id = data.get("subscription_id")
+    customer_id = data.get("customer_id")
+
+    sub = next((s for s in subscriptions if s.get("subscription_id") == subscription_id or (customer_id and s["customer_id"] == customer_id and s["status"] == "ACTIVE")), None)
+    if not sub:
+        return jsonify({
+            "success": False,
+            "message": "Active subscription not found."
+        }), 404
+
+    sub["status"] = "CANCELLED"
+    return jsonify({
+        "success": True,
+        "message": "Subscription cancelled successfully.",
+        "subscription": sub
+    })
+
+
+# ============================================================
+# BEST WORK PORTFOLIO ROUTES (IDEA #4)
+# ============================================================
+
+@app.route("/worker/<worker_id>/portfolio", methods=["GET"])
+def get_worker_portfolio(worker_id):
+    items = worker_portfolios.get(worker_id, [])
+    worker = next((w for w in workers if w.worker_id == worker_id), None)
+    worker_name = worker.full_name if worker else "Partner"
+
+    return jsonify({
+        "success": True,
+        "worker_id": worker_id,
+        "worker_name": worker_name,
+        "total_showcases": len(items),
+        "portfolio": items
+    })
+
+
+@app.route("/worker/<worker_id>/portfolio", methods=["POST"])
+def add_worker_portfolio(worker_id):
+    global portfolio_counter
+    data = request.json or {}
+
+    title = data.get("title", "").strip()
+    image_url = data.get("image_url", "").strip()
+    description = data.get("description", "").strip()
+    category = data.get("category", "General Craftsmanship").strip()
+    tags = data.get("tags", ["Verified Work", "Quality Assured"])
+
+    if not title:
+        return jsonify({
+            "success": False,
+            "message": "Project title is required."
+        }), 400
+
+    if not image_url:
+        image_url = "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=80"
+
+    portfolio_counter += 1
+    new_item = {
+        "id": f"PORT-{worker_id}-{portfolio_counter}",
+        "worker_id": worker_id,
+        "title": title,
+        "category": category,
+        "description": description or "Showcase of verified craftsmanship and meticulous doorstep service.",
+        "completed_date": "September 2026",
+        "image_url": image_url,
+        "tags": tags if isinstance(tags, list) else [t.strip() for t in str(tags).split(",") if t.strip()],
+        "verified_by_platform": True
+    }
+
+    if worker_id not in worker_portfolios:
+        worker_portfolios[worker_id] = []
+
+    worker_portfolios[worker_id].insert(0, new_item)
+
+    return jsonify({
+        "success": True,
+        "message": "Portfolio showcase item added successfully!",
+        "item": new_item
+    }), 201
+
+
+# ============================================================
+# RELIABILITY SCORE ROUTE (IDEA #8)
+# ============================================================
+
+@app.route("/worker/<worker_id>/reliability", methods=["GET"])
+def get_worker_reliability(worker_id):
+    worker = next((w for w in workers if w.worker_id == worker_id), None)
+    if not worker:
+        return jsonify({
+            "success": False,
+            "message": "Worker not found."
+        }), 404
+
+    reliability_data = calculate_worker_reliability(worker_id)
+    reliability_data["worker_name"] = worker.full_name
+    reliability_data["primary_skill"] = worker.primary_skill
+
+    return jsonify({
+        "success": True,
+        "reliability": reliability_data
     })
 
 

@@ -10,7 +10,9 @@ class Booking:
             worker_id, 
             service, 
             date, 
-            status 
+            status,
+            problem_photo=None,
+            problem_notes=None
             ): 
             self.booking_id = booking_id 
             self.customer_id = customer_id 
@@ -18,6 +20,8 @@ class Booking:
             self.service = service 
             self.date = date 
             self.status = status 
+            self.problem_photo = problem_photo 
+            self.problem_notes = problem_notes 
 
     def to_dict(self): 
         return { 
@@ -26,5 +30,7 @@ class Booking:
             "worker_id": self.worker_id, 
             "service": self.service, 
             "date": self.date, 
-            "status": self.status 
+            "status": self.status,
+            "problem_photo": self.problem_photo,
+            "problem_notes": self.problem_notes
             }
